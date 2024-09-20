@@ -129,3 +129,23 @@ pub fn wasm_msg_to_any(msg: &WasmMsg, signer: &SigningAccount) -> Result<cosmrs:
         }),
     }
 }
+
+use std::str::Utf8Error;
+use cosmwasm_std::{Attribute};
+
+pub fn parse_attribute(event: &cosmrs::tendermint::abci::EventAttribute) -> Result<Attribute, Utf8Error> {
+    Ok(match event {
+        cosmrs::tendermint::abci::EventAttribute::V034(attr) => {
+            Attribute {
+                key: core::str::from_utf8(&attr.key)?.to_string(),
+                value: core::str::from_utf8(&attr.value)?.to_string()
+            }
+        },
+        cosmrs::tendermint::abci::EventAttribute::V037(attr) => {
+            Attribute {
+                key: attr.key.clone(),
+                value: attr.value.clone()
+            }
+        },
+    })
+}

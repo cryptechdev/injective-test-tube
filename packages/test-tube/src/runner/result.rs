@@ -51,10 +51,10 @@ where
                     e.attributes
                         .into_iter()
                         .map(|a| -> Result<Attribute, Utf8Error> {
-                            Ok(Attribute {
-                                key: std::str::from_utf8(a.key.as_ref())?.to_string(),
-                                value: std::str::from_utf8(a.value.as_ref())?.to_string(),
-                            })
+                            crate::utils::parse_attribute(&a)
+
+
+
                         })
                         .collect::<Result<Vec<Attribute>, Utf8Error>>()?,
                 ))
@@ -101,10 +101,10 @@ where
                     e.attributes
                         .into_iter()
                         .map(|a| -> Result<Attribute, Utf8Error> {
-                            Ok(Attribute {
-                                key: a.key.to_string(),
-                                value: a.value.to_string(),
-                            })
+                            crate::utils::parse_attribute(&a)
+
+
+
                         })
                         .collect::<Result<Vec<Attribute>, Utf8Error>>()?,
                 ))
