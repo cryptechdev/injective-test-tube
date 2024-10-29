@@ -17,9 +17,9 @@ cosmrs             = { version = "0.18", features = [ "cosmwasm", "rpc" ] }
 cosmwasm-std       = { version = "1.5.0", features = [ "abort", "cosmwasm_1_2", "cosmwasm_1_3", "cosmwasm_1_4", "iterator", "stargate" ] }
 hex                = "0.4.2"
 #injective-cosmwasm = { version = "0.3.0" }
-injective-cosmwasm = { git = "https://github.com/cryptechdev/cw-injective.git", rev = "f563b05f" }
+injective-cosmwasm = { git = "https://github.com/cryptechdev/cw-injective.git", rev = "1e16cf72fa5c" }
 #injective-std      = { version = "1.13.0" }
-injective-std      = { git = "https://github.com/cryptechdev/cw-injective.git", rev = "f563b05f" }
+injective-std      = { git = "https://github.com/cryptechdev/cw-injective.git", rev = "1e16cf72fa5c" }
 #prost              = "0.12.3"
 prost              = "0.13"
 serde              = "1.0.144"
